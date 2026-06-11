@@ -1,5 +1,5 @@
-// Single place to swap the booking destination later (Cal.com / Calendly / form).
-export const BOOKING_URL = "https://cal.com/odovox/walkthrough";
+// Primary CTA target. Booking is removed for now; the film is the call to action.
+export const CTA_HREF = "#film";
 
 export const NAV_LINKS = [
   { label: "The problem", href: "#converge" },

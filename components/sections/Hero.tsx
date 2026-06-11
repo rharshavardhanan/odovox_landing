@@ -1,7 +1,7 @@
 import HeroWorkflow from "./hero/HeroWorkflow";
 import CTAButton from "@/components/primitives/CTAButton";
 import Reveal from "@/components/primitives/Reveal";
-import { BOOKING_URL } from "@/lib/site";
+import { CTA_HREF } from "@/lib/site";
 
 export default function Hero() {
   return (
@@ -37,11 +37,11 @@ export default function Hero() {
           </div>
 
           <div data-reveal className="mt-9 flex flex-wrap items-center gap-3">
-            <CTAButton href={BOOKING_URL} arrow>
-              Book walkthrough
+            <CTAButton href={CTA_HREF} arrow>
+              Watch the film
             </CTAButton>
-            <CTAButton href="#film" variant="ghost">
-              Watch workflow
+            <CTAButton href="#converge" variant="ghost">
+              See how it works
             </CTAButton>
           </div>
         </Reveal>

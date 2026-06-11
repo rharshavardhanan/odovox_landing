@@ -1,7 +1,7 @@
 import CTAButton from "@/components/primitives/CTAButton";
 import Reveal from "@/components/primitives/Reveal";
 import Waveform from "@/components/primitives/Waveform";
-import { BOOKING_URL } from "@/lib/site";
+import { CTA_HREF } from "@/lib/site";
 
 export default function FinalCTA() {
   return (
@@ -27,19 +27,16 @@ export default function FinalCTA() {
             data-reveal
             className="mx-auto mt-7 max-w-xl text-xl leading-relaxed text-ink-soft"
           >
-            Let Odovox handle the documentation, so the rest of your day belongs
-            to dentistry again.
+            Odovox does the clinical admin by voice, so the rest of your day
+            belongs to dentistry again.
           </p>
 
           <div
             data-reveal
             className="mt-10 flex flex-wrap items-center justify-center gap-3"
           >
-            <CTAButton href={BOOKING_URL} arrow className="px-7 py-3.5 text-base">
-              Book a walkthrough
-            </CTAButton>
-            <CTAButton href="#film" variant="ghost" className="text-base">
-              Watch the workflow
+            <CTAButton href={CTA_HREF} arrow className="px-7 py-3.5 text-base">
+              Watch the film
             </CTAButton>
           </div>
         </Reveal>

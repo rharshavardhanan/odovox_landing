@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Hero from "@/components/sections/Hero";
+import CinemaBurden from "@/components/sections/CinemaBurden";
 import Convergence from "@/components/sections/Convergence";
 import Consultation45 from "@/components/sections/Consultation45";
 import VoiceFirst from "@/components/sections/VoiceFirst";
@@ -10,8 +11,6 @@ import MultiVisit from "@/components/sections/MultiVisit";
 import SmartAppointments from "@/components/sections/SmartAppointments";
 import ReceptionFlow from "@/components/sections/ReceptionFlow";
 import Billing from "@/components/sections/Billing";
-import InteractiveClinic from "@/components/sections/InteractiveClinic";
-import BeforeAfter from "@/components/sections/BeforeAfter";
 import ProductFilm from "@/components/sections/ProductFilm";
 import Principles from "@/components/sections/Principles";
 import FinalCTA from "@/components/sections/FinalCTA";
@@ -22,6 +21,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <CinemaBurden />
         <Convergence />
         <Consultation45 />
         <VoiceFirst />
@@ -31,8 +31,6 @@ export default function Home() {
         <SmartAppointments />
         <ReceptionFlow />
         <Billing />
-        <InteractiveClinic />
-        <BeforeAfter />
         <ProductFilm />
         <Principles />
         <FinalCTA />

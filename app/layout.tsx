@@ -19,13 +19,13 @@ const sans = Hanken_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://odovox.com"),
-  title: "Odovox — You became a dentist. Not a data-entry operator.",
+  title: "Odovox — Dentistry, not data entry.",
   description:
-    "Odovox is a voice-first dental operating system. Speak naturally during a consultation and the records write themselves: diagnosis, prescription, procedure, follow-up, billing. The end of clinical administration.",
+    "Odovox is a voice-first dental operating system that does your clinical admin. Speak naturally during a consultation and the records write themselves: diagnosis, prescription, procedure, follow-up, billing.",
   openGraph: {
-    title: "Odovox — The end of clinical administration",
+    title: "Odovox — Dentistry, not data entry.",
     description:
-      "Complete records before the patient leaves the chair. Odovox records the clinic while you work.",
+      "The voice-first dental OS that does your clinical admin. Complete records before the patient leaves the chair.",
     type: "website",
   },
 };

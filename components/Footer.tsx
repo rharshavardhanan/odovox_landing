@@ -1,6 +1,6 @@
 import Logo from "@/components/primitives/Logo";
 import CTAButton from "@/components/primitives/CTAButton";
-import { BOOKING_URL } from "@/lib/site";
+import { CTA_HREF } from "@/lib/site";
 
 const builtAround = [
   "consultations",
@@ -23,8 +23,8 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex flex-col items-start gap-4 md:items-end">
-            <CTAButton href={BOOKING_URL} arrow>
-              Book a walkthrough
+            <CTAButton href={CTA_HREF} arrow>
+              Watch the film
             </CTAButton>
             <a
               href="mailto:hello@odovox.com"
@@ -48,7 +48,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-hairline pt-7 text-sm text-ink-faint sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Odovox. The end of clinical administration.</p>
+          <p>© {new Date().getFullYear()} Odovox. Dentistry, not data entry.</p>
           <p className="flex gap-5">
             <a href="#" className="transition-colors hover:text-ink">
               Privacy

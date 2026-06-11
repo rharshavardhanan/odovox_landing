@@ -7,3 +7,8 @@ build/
 *.log
 .env*.local
 .vercel
+
+# remotion subproject
+my-video/node_modules/
+my-video/out/
+my-video/.remotion/

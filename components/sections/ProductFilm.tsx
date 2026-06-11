@@ -1,34 +1,7 @@
 import Section from "@/components/primitives/Section";
 import SectionHeading from "@/components/primitives/SectionHeading";
 import Reveal from "@/components/primitives/Reveal";
-
-function Film({
-  src,
-  poster,
-  caption,
-  className = "",
-}: {
-  src: string;
-  poster: string;
-  caption: string;
-  className?: string;
-}) {
-  return (
-    <figure className={className}>
-      <div className="overflow-hidden rounded-2xl border border-white/10 bg-black shadow-float">
-        <video
-          className="aspect-video w-full"
-          src={src}
-          poster={poster}
-          controls
-          playsInline
-          preload="none"
-        />
-      </div>
-      <figcaption className="mt-3 text-sm text-paper/55">{caption}</figcaption>
-    </figure>
-  );
-}
+import BrandFilm from "@/components/primitives/BrandFilm";
 
 export default function ProductFilm() {
   return (
@@ -36,26 +9,23 @@ export default function ProductFilm() {
       <SectionHeading
         onDark
         kicker="Product film"
-        title="Watch a day run on speech."
-        intro="No feature tour. Just the work: a consultation captured by voice, and the documentation that used to take the rest of the afternoon."
+        title="The whole story, in thirty seconds."
+        intro="The admin pile-up after every patient, collapsed into one voice, and the records writing themselves. Tap for sound."
       />
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-[1.35fr_0.65fr] lg:items-start">
-        <Reveal y={24}>
-          <Film
-            src="/media/voice-autofill.mp4"
-            poster="/media/voice-autofill-poster.jpg"
-            caption="A new patient captured by voice. Name, complaint and history filled while the dentist talks."
+      <Reveal y={28} className="mt-12">
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black shadow-float">
+          <div className="pointer-events-none absolute left-6 top-6 z-10 flex items-center gap-2 rounded-full bg-black/45 px-3.5 py-2 text-xs font-medium text-paper/85 backdrop-blur-[2px]">
+            <span className="h-1.5 w-1.5 rounded-full bg-done" />
+            Odovox · film
+          </div>
+          <BrandFilm
+            src="/media/odovox-film.mp4"
+            poster="/media/odovox-film-poster.jpg"
+            className="aspect-video w-full"
           />
-        </Reveal>
-        <Reveal y={24} delay={0.08}>
-          <Film
-            src="/media/clinic-scene.mp4"
-            poster="/media/clinic-scene-poster.jpg"
-            caption="The alternative: the part of the day no one trained for."
-          />
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
     </Section>
   );
 }

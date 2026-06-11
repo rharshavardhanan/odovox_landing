@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "@/components/primitives/Logo";
 import CTAButton from "@/components/primitives/CTAButton";
-import { BOOKING_URL, NAV_LINKS } from "@/lib/site";
+import { CTA_HREF, NAV_LINKS } from "@/lib/site";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,14 +42,8 @@ export default function Nav() {
         </div>
 
         <div className="flex items-center gap-2">
-          <a
-            href="#film"
-            className="hidden text-sm text-ink-soft transition-colors hover:text-ink sm:inline"
-          >
-            Watch workflow
-          </a>
-          <CTAButton href={BOOKING_URL} className="px-5 py-2.5 text-sm">
-            Book walkthrough
+          <CTAButton href={CTA_HREF} className="px-5 py-2.5 text-sm">
+            Watch the film
           </CTAButton>
         </div>
       </nav>

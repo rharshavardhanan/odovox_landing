@@ -199,8 +199,8 @@ export default function Consultation45() {
 
                 <div className="mt-8 hidden lg:block">
                   <PhoneFrame
-                    src="/media/app-home.jpg"
-                    alt="Odovox home screen: start a consultation, queue is clear"
+                    src="/media/app-patient.png"
+                    alt="Odovox patient screen: record findings by voice, tooth map and treatment"
                     className="!mx-0 max-w-[220px]"
                   />
                 </div>

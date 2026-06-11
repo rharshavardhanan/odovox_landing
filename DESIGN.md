@@ -84,14 +84,21 @@ The dark consult card and consult mode use subtle inner glow / light, not neon.
 
 ## Motion
 
-Engine: **GSAP + ScrollTrigger + Lenis** smooth scroll. Philosophy: engineered, calm,
-deliberate, physical. No bounce, no elastic, no float. Ease-out exponential (expo/quart).
+Engines: **GSAP + ScrollTrigger + Lenis** for scroll choreography, **React Three Fiber /
+Three.js** for the 3D centerpiece, **Remotion** for the rendered brand film. Direction
+(updated): elevated and cinematic, but still engineered, not gimmicky. Premium, matte, paper-
+toned 3D; smooth exponential easing; no neon, no chaos. Motion is now a primary focal layer,
+not just polish, the site should feel clearly alive.
 
-Signature moments (scroll-scrubbed, pinned):
+Signature moments:
+- **3D convergence (centerpiece, R3F)**: eight scattered admin tiles float in dark space,
+  converge, and the camera flies *into* a 3D iPhone that resolves into the real app. Pinned,
+  scroll-scrubbed. "Scroll into the app."
+- **Brand film (Remotion)**: ~20s Apple-style motion-graphics film (hook → burden →
+  collapse-to-voice → app writes records → payoff), rendered to mp4, autoplayed in-view.
+  Source project in `my-video/`, output at `public/media/odovox-film.mp4`.
 - **Hero**: typing/clicking workflow plays, then freezes; a microphone appears; on speak,
   every field fills itself. "Stop typing."
-- **The real problem**: each action duplicates (typing, typing, typing), then all duplicates
-  collapse into one microphone, one voice command. Satisfying collapse.
 - **45-second consultation**: scrubbed timeline 00:00→00:45; diagnosis, prescription,
   procedure, follow-up, billing appear in real time as the doctor speaks.
 - **Patient timeline / multi-visit**: the timeline draws itself as you scroll.
@@ -111,14 +118,18 @@ instant. The story survives without motion.
 - **Timeline node**: connected diagnosis → x-ray → procedure → prescription → payment → recall.
 - **Section kicker**: used sparingly, not above every heading (avoid AI scaffolding grammar).
 
-## Assets (real, in `public_asssets/`)
+## Assets
 
-- `image.png_202606111222.jpeg` — Odovox app home screen (real UI).
-- `iPhone_screen_showing_voice_auto….mp4` — voice auto-fill screen recording (10s).
-- `stree_scene_1.mp4` — clinic scene video (30s) for the product-film section.
+Source assets in `public_asssets/`, served copies in `public/media/`:
+- `app-home.jpg` — Odovox app home screen (real UI). Used in Consult-45, the 3D phone screen,
+  and the brand film.
+- `voice-autofill.mp4` (+ poster) — real app voice auto-fill clip. Product Film support.
+- `clinic-scene.mp4` (+ poster) — the documentation-burden scene. Product Film support.
+- `odovox-film.mp4` (+ poster) — the rendered Remotion brand film. Product Film centerpiece.
 
 ## Bans (project-specific, on top of impeccable's)
 
 Pure white/black; blue-button SaaS look; dashboard-screenshot grids; identical feature-card
-grids; gradient text; glassmorphism-by-default; em dashes in copy; fake stats/reviews/counts;
-bouncy or floating startup motion.
+grids; gradient text; glassmorphism-by-default; em dashes in copy; fake stats/reviews/counts.
+(Motion ban relaxed: bold/cinematic motion is now wanted, but it must stay smooth and
+engineered, never bouncy/elastic or random.)

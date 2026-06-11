@@ -2,6 +2,7 @@ import Section from "@/components/primitives/Section";
 import SectionHeading from "@/components/primitives/SectionHeading";
 import Reveal from "@/components/primitives/Reveal";
 import Waveform from "@/components/primitives/Waveform";
+import BrandFilm from "@/components/primitives/BrandFilm";
 
 const EXAMPLES = [
   {
@@ -21,7 +22,7 @@ const EXAMPLES = [
 export default function VoiceFirst() {
   return (
     <Section id="voice" surface="sage">
-      <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <div className="grid items-center gap-14 lg:grid-cols-[0.92fr_1.08fr]">
         <div>
           <SectionHeading
             kicker="Voice-first clinic"
@@ -47,31 +48,49 @@ export default function VoiceFirst() {
           </Reveal>
         </div>
 
-        <Reveal stagger className="space-y-3.5">
-          {EXAMPLES.map((ex) => (
-            <div
-              key={ex.say}
-              data-reveal
-              className="rounded-2xl border border-ink/10 bg-paper px-5 py-5 shadow-soft"
-            >
-              <p className="font-display text-lg font-semibold leading-snug tracking-tight text-ink">
-                “{ex.say}”
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {ex.out.map((o) => (
-                  <span
-                    key={o}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-sage px-3 py-1 text-xs font-medium text-ink"
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-done" />
-                    {o}
-                  </span>
-                ))}
-              </div>
+        {/* The real app, captured by voice */}
+        <Reveal y={28}>
+          <figure>
+            <div className="relative overflow-hidden rounded-[1.6rem] border border-ink/10 bg-ink shadow-float">
+              <BrandFilm
+                src="/media/voice-autofill.mp4"
+                poster="/media/voice-autofill-poster.jpg"
+                className="aspect-video w-full"
+              />
             </div>
-          ))}
+            <figcaption className="mt-3 text-sm text-ink-soft">
+              The real app: a new patient captured by voice, fields filling as the
+              dentist talks.
+            </figcaption>
+          </figure>
         </Reveal>
       </div>
+
+      {/* Spoken examples */}
+      <Reveal stagger className="mt-16 grid gap-3.5 md:grid-cols-3">
+        {EXAMPLES.map((ex) => (
+          <div
+            key={ex.say}
+            data-reveal
+            className="rounded-2xl border border-ink/10 bg-paper px-5 py-5 shadow-soft"
+          >
+            <p className="font-display text-lg font-semibold leading-snug tracking-tight text-ink">
+              “{ex.say}”
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {ex.out.map((o) => (
+                <span
+                  key={o}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-sage px-3 py-1 text-xs font-medium text-ink"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-done" />
+                  {o}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </Reveal>
     </Section>
   );
 }

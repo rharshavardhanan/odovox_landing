@@ -190,9 +190,10 @@ export default function Scene3D({ progress }: { progress: Progress }) {
     <Canvas
       camera={{ position: [0, 0.3, 9.2], fov: 42 }}
       dpr={[1, 2]}
-      gl={{ antialias: true, alpha: true }}
+      gl={{ antialias: true, alpha: false }}
       style={{ position: "absolute", inset: 0 }}
     >
+      <color attach="background" args={["#1a1a19"]} />
       <Suspense fallback={null}>
         <ambientLight intensity={0.55} />
         <directionalLight position={[4, 6, 6]} intensity={1.7} />
