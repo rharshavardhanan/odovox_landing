@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 type Props = {
   src: string;
   alt: string;
@@ -10,8 +8,9 @@ type Props = {
 };
 
 /**
- * Premium thin-bezel phone holding a real Odovox screenshot. The screenshot
- * carries its own status bar/island; the bezel just gives it weight.
+ * Premium thin-bezel phone holding a real Odovox screenshot. The screenshot is
+ * shown at its natural aspect ratio (no cropping), so different screens are not
+ * distorted. The bezel is the only frame.
  */
 export default function PhoneFrame({
   src,
@@ -23,17 +22,14 @@ export default function PhoneFrame({
   return (
     <div className={`relative mx-auto w-full max-w-[300px] ${className}`}>
       <div className="rounded-[2.5rem] bg-ink p-[7px] shadow-float">
-        <div
-          className="relative overflow-hidden rounded-[2.05rem] bg-paper"
-          style={{ aspectRatio: "418 / 887" }}
-        >
-          <Image
+        <div className="relative overflow-hidden rounded-[2.05rem] bg-paper">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={src}
             alt={alt}
-            fill
-            priority={priority}
-            sizes="300px"
-            className="object-cover object-top"
+            loading={priority ? "eager" : "lazy"}
+            decoding="async"
+            className="block h-auto w-full"
           />
           {children}
         </div>

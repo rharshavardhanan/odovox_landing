@@ -41,7 +41,13 @@ export default function Nav() {
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <a
+            href="/study"
+            className="hidden text-sm text-ink-soft transition-colors duration-200 hover:text-ink sm:inline"
+          >
+            Field study
+          </a>
           <CTAButton href={CTA_HREF} className="px-5 py-2.5 text-sm">
             Watch the film
           </CTAButton>

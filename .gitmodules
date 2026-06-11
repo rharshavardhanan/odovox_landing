@@ -1,0 +1,3 @@
+[submodule "dentai-landing"]
+	path = dentai-landing
+	url = https://github.com/jayavarsan-r/denist-landing.git

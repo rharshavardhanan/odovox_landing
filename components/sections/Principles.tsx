@@ -16,7 +16,7 @@ export default function Principles() {
     <Section id="principles" surface="paper">
       <div className="grid gap-14 lg:grid-cols-[0.92fr_1.08fr]">
         {/* Left — message + voice panel */}
-        <Reveal className="lg:sticky lg:top-24 lg:self-start">
+        <Reveal className="min-w-0 lg:sticky lg:top-24 lg:self-start">
           <p className="kicker text-ink-faint">Product principles</p>
           <h2 className="display-lg mt-5 text-ink">
             No fake reviews. No invented numbers.
@@ -34,7 +34,7 @@ export default function Principles() {
                 Built on speech
               </span>
             </div>
-            <div className="mt-8 flex h-24 items-center">
+            <div className="mt-8 flex h-24 items-center overflow-hidden">
               <Waveform bars={52} className="h-full w-full text-paper/85" />
             </div>
             <p className="mt-7 text-paper/65 measure">
@@ -45,7 +45,7 @@ export default function Principles() {
         </Reveal>
 
         {/* Right — the principles */}
-        <div className="divide-y divide-hairline border-t border-hairline">
+        <div className="min-w-0 divide-y divide-hairline border-t border-hairline">
           {PRINCIPLES.map((p, i) => (
             <Reveal
               key={p.k}

@@ -199,7 +199,7 @@ export default function HeroWorkflow() {
   return (
     <div ref={root} className="relative w-full select-none">
       {/* the record card */}
-      <div className="relative overflow-hidden rounded-[1.6rem] border border-hairline bg-white shadow-float">
+      <div className="relative overflow-hidden rounded-[1.6rem] border border-hairline bg-white shadow-[0_4px_14px_rgba(22,22,22,0.05),0_44px_90px_-18px_rgba(22,22,22,0.26)]">
         {/* card chrome */}
         <div className="flex items-center justify-between border-b border-hairline px-5 py-3.5">
           <div className="flex items-center gap-2.5">

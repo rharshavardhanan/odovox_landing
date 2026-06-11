@@ -47,9 +47,11 @@ export default function Hero() {
         </Reveal>
 
         {/* Right — the proof in motion */}
-        <Reveal className="w-full" y={28} delay={0.15}>
-          <div className="relative mx-auto max-w-[420px]">
-            <div className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.4rem] bg-sage/40 blur-2xl" />
+        <Reveal className="w-full lg:self-center" y={28} delay={0.15}>
+          <div className="relative mx-auto max-w-[440px]">
+            {/* layered ambient halo, so the device reads as floating, not flat */}
+            <div className="pointer-events-none absolute -inset-10 -z-10 rounded-[3rem] bg-sage/50 blur-3xl" />
+            <div className="pointer-events-none absolute -inset-3 -z-10 rounded-[2.6rem] bg-peach/25 blur-2xl" />
             <HeroWorkflow />
           </div>
         </Reveal>

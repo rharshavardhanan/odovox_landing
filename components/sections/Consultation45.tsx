@@ -74,15 +74,13 @@ export default function Consultation45() {
     () => {
       const q = gsap.utils.selector(root);
       const clock = q(".cs-clock")[0] as HTMLElement;
-      const reduced = prefersReducedMotion();
 
       const activate = (node: Element) => {
         const i = Number((node as HTMLElement).dataset.i);
-        const tone = TONE[NODES[i].tone];
-        return { i, tone };
+        return { i, tone: TONE[NODES[i].tone] };
       };
 
-      if (reduced) {
+      if (prefersReducedMotion()) {
         q(".cs-node").forEach((node) => {
           const { tone } = activate(node);
           gsap.set(node.querySelector(".cs-dot"), {
@@ -99,7 +97,10 @@ export default function Consultation45() {
 
       const mm = gsap.matchMedia();
 
-      const buildSequence = (pin: boolean) => {
+      // Non-pinned scrub. On desktop the panel stays in view via CSS sticky and
+      // the timeline scrubs across the tall track; on mobile it fills as the
+      // timeline scrolls through. No ScrollTrigger pin → no pin-spacer collisions.
+      const build = (trigger: Element, start: string, end: string) => {
         const nodes = q(".cs-node");
         gsap.set(q(".cs-card"), { autoAlpha: 0, y: 14 });
 
@@ -107,14 +108,7 @@ export default function Consultation45() {
         const fmt = (s: number) => `00:${String(Math.round(s)).padStart(2, "0")}`;
 
         const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: pin ? q(".cs-pin")[0] : q(".cs-seq")[0],
-            start: pin ? "top top" : "top 70%",
-            end: pin ? "+=230%" : "bottom 60%",
-            scrub: 0.6,
-            pin: pin ? q(".cs-pin")[0] : false,
-            anticipatePin: pin ? 1 : 0,
-          },
+          scrollTrigger: { trigger, start, end, scrub: 0.6 },
         });
 
         tl.to(q(".cs-fill"), { scaleY: 1, ease: "none", duration: 1 }, 0);
@@ -150,15 +144,13 @@ export default function Consultation45() {
             duration: 0.08,
           }, pos);
         });
-
-        return tl;
       };
 
-      mm.add("(min-width: 768px)", () => {
-        buildSequence(true);
+      mm.add("(min-width: 1024px)", () => {
+        build(q(".cs-track")[0], "top top", "bottom bottom");
       });
-      mm.add("(max-width: 767px)", () => {
-        buildSequence(false);
+      mm.add("(max-width: 1023px)", () => {
+        build(q(".cs-seq")[0], "top 78%", "bottom 55%");
       });
 
       return () => mm.revert();
@@ -168,10 +160,10 @@ export default function Consultation45() {
 
   return (
     <section id="consult-45" ref={root} className="relative scroll-mt-20 bg-paper">
-      <div className="cs-pin">
-        <div className="mx-auto max-w-[1240px] px-5 py-24 sm:px-8 md:py-0">
-          <div className="md:flex md:min-h-screen md:items-center md:py-20">
-            <div className="grid w-full gap-12 md:grid-cols-[0.92fr_1.08fr] md:gap-14">
+      <div className="cs-track relative lg:h-[240vh]">
+        <div className="lg:sticky lg:top-0 lg:flex lg:min-h-screen lg:items-center">
+          <div className="mx-auto w-full max-w-[1240px] px-5 py-20 sm:px-8 lg:py-24">
+            <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
               {/* Left — anchor: clock, spoken line, real app */}
               <div>
                 <p className="kicker text-ink-faint">The 45-second consultation</p>
@@ -197,11 +189,11 @@ export default function Consultation45() {
                   </p>
                 </div>
 
-                <div className="mt-8 hidden lg:block">
+                <div className="mt-8">
                   <PhoneFrame
                     src="/media/app-patient.png"
                     alt="Odovox patient screen: record findings by voice, tooth map and treatment"
-                    className="!mx-0 max-w-[220px]"
+                    className="mx-auto max-w-[210px] lg:mx-0 lg:max-w-[220px]"
                   />
                 </div>
               </div>
